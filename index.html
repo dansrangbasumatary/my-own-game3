@@ -1,0 +1,168 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Football Game</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+
+  <body class="bg-green-700 text-center text-white font-sans">
+    <div>
+      <div id="theHead">
+        <h1 class="mt-16 text-5xl">Football Game</h1>
+        <h3 class="mt-8">Main Menu</h3>
+        <br />
+      </div>
+
+      <div class="from-orange-400 to-orange-700">
+        <button
+          class="bg-gradient-to-r text-white w-1/4 hover:from-teal-400 hover:to-blue-500 flex items-center justify-center text-white"
+          id="newGame"
+          onclick="onTimer(); quickMatch();"
+        >
+          Quick Match
+        </button>
+
+        <button
+          class="bg-gradient-to-r text-white w-1/4 flex hover:from-teal-400 hover:to-blue-500 items-center justify-center text-white"
+          id="settingsBtn"
+          onclick="showSettings()"
+        >
+          Settings
+        </button>
+        <div id="settings">
+          <h2 class="text-4xl mt-8">Settings</h2>
+          <div class="sound-section" unselectable="on">
+            <audio id="crowd">
+              <source src="assets/crowd.mp3" type="audio/mp3" />
+            </audio>
+            <i
+              class="mt-8 sound-icon tooltip fa fa-volume-up fa-2x"
+              id="sound-icon"
+              type="button"
+              onclick="playSound('crowd')"
+            >
+              <span id="showmute">Mute</span>
+            </i>
+          </div>
+          <br />
+        </div>
+        <button
+          class="bg-gradient-to-r text-white w-1/4 flex hover:from-teal-400 hover:to-blue-500 items-center justify-center text-white"
+          id="aboutBtn"
+          onclick="showCredits()"
+        >
+          About
+        </button>
+        <div id="credits">
+          <h2 class="text-4xl mt-8">About this game</h2>
+          <h3 class="text-xl mt-8">Made by Gonzalo Simon.</h3>
+          <p>I'm a web-developer from Argentina, this is one of my projects.</p>
+          <div>
+            <br />
+            <p>
+              You can learn on my blog how I made this game with JavaScript.
+            </p>
+
+            <p>
+              <a
+                href="https://gonzalosimon.hashnode.dev/football-game-with-javascript-part-1"
+                >Click here to check the first part</a
+              >
+            </p>
+            <p>
+              <a
+                href="https://gonzalosimon.hashnode.dev/football-game-with-javascript-part-2-making-botscpu-move"
+                >Click here to check the second part</a
+              >
+            </p>
+
+            <br />
+          </div>
+        </div>
+
+        <button
+          class="mt-16 bg-gradient-to-r text-white w-1/4 flex hover:from-teal-400 hover:to-blue-500 items-center justify-center text-white"
+          id="backBtn"
+          onclick="goBack()"
+        >
+          Go Back
+        </button>
+      </div>
+    </div>
+
+    <div>
+    <div class="text-center text-white font-sans flex justify-center" id="finalResult"></div>
+      <canvas
+        class="text-center text-white font-sans flex justify-center"
+        id="game"
+        width="900"
+        height="500"
+      ></canvas>  
+      <script src="script.js"></script>
+      <p class="text-1xl" id="instructions">
+        Press Z to run, press X to shoot! <br />
+        Press R to restart the match
+      </p>
+      <p class="text-1xl" id="instructions"></p>
+      <p class="text-1xl" id="blueteam_score"></p>
+      <p class="text-1xl" id="redteam_score"></p>
+      <div id="showTime"> The match ends in <span id="timer"></span></div>
+    </div>
+  </body>
+  <br />
+  <footer>
+    <div class="mt-16 footer text-center flex flex-wrap items-center">
+      <div class="social-links flex rounded-full bg justify-center flex">
+        <div class="rounded-full bg-black social">
+          <a
+            href="https://www.linkedin.com/in/gonzalo-simon-aguilar/?locale=en_US/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="linkedin"
+          >
+            <i class="fa fa-linkedin"></i>
+          </a>
+        </div>
+        <div class="social rounded-full bg-black">
+          <a
+            href="https://www.github.com/gb-simon/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github"
+          >
+            <i class="fa fa-github"></i>
+          </a>
+        </div>
+        <div class="social rounded-full bg-black">
+          <a
+            href="https://twitter.com/_gonzalosimon"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="twitter"
+            ><i class="fa fa-twitter"></i>
+          </a>
+        </div>
+        <div class="social-last rounded-full bg-black">
+          <a
+            href="mailto:aguilarsimon01@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="envelope"
+          >
+            <i class="fa fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
